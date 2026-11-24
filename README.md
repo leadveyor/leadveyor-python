@@ -198,5 +198,6 @@ Per-request keyword arguments on every method: `workspace`, `timeout`, `max_retr
 ## Links
 
 - Docs: https://leadveyor.com/docs/sdk/python
+- Other languages: [TypeScript](https://www.npmjs.com/package/@leadveyor/sdk) · [PHP](https://github.com/leadveyor/leadveyor-php)
 - API reference: https://leadveyor.com/docs/inbounds
 - Support: support@leadveyor.com
