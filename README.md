@@ -1,5 +1,7 @@
 # Leadveyor SDK for Python
 
+[![PyPI](https://img.shields.io/pypi/v/leadveyor)](https://pypi.org/project/leadveyor/) [![Tests](https://github.com/leadveyor/leadveyor-python/actions/workflows/tests.yml/badge.svg)](https://github.com/leadveyor/leadveyor-python/actions/workflows/tests.yml)
+
 Official client for the [Leadveyor API](https://leadveyor.com/docs/api): send messages, get scored leads, manage profiles, sources and webhooks. Python 3.9+, sync and async, typed. One dependency: [httpx](https://www.python-httpx.org).
 
 ```bash
