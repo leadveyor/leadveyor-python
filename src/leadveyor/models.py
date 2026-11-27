@@ -7,7 +7,44 @@ from typing import Any, ClassVar, List, Literal, Mapping, Optional
 
 from ._object import LeadveyorObject
 
-__all__ = ["ApiKey", "ApiKeyList", "Billing", "BillingRedirect", "Contact", "ContactLeadList", "ContactList", "CreatedApiKey", "CrmConnection", "CrmConnectionList", "CrmConnections", "CrmInstall", "CrmIntegration", "CrmPendingInstall", "CrmPendingList", "Delivery", "DeliveryList", "Destination", "DestinationList", "DestinationWithSecret", "Evaluation", "EvaluationList", "EvaluationRecord", "EvaluationResult", "Event", "EventList", "ExtractField", "FacebookIntegration", "FacebookPages", "FacebookRedirect", "FacebookSourceList", "GeneratedCriterion", "GeneratedProfile", "HubspotConnectionList", "HubspotConnections", "HubspotPendingList", "Inbound", "InboundList", "InboundResult", "Job", "Lead", "LeadEvaluation", "LeadList", "Outcome", "PipedriveConnectionList", "PipedriveConnections", "PipedrivePendingList", "Place", "PlaceSuggestion", "PlaceSuggestionList", "Plan", "Profile", "ProfileDocument", "ProfileList", "ProfileTemplate", "ProfileTemplateList", "ProfileValidation", "ProfileVersion", "ProfileVersionList", "Report", "ReportMoney", "Source", "SourceList", "TemplateVariable", "Tier", "Usage", "Workspace", "WorkspaceComparison", "WorkspaceList"]
+__all__ = ["Alert", "AlertList", "ApiKey", "ApiKeyList", "Billing", "BillingRedirect", "Contact", "ContactLeadList", "ContactList", "CreatedApiKey", "CrmConnection", "CrmConnectionList", "CrmConnections", "CrmInstall", "CrmIntegration", "CrmPendingInstall", "CrmPendingList", "Delivery", "DeliveryList", "Destination", "DestinationList", "DestinationWithSecret", "Evaluation", "EvaluationList", "EvaluationRecord", "EvaluationResult", "Event", "EventList", "ExtractField", "FacebookIntegration", "FacebookPages", "FacebookRedirect", "FacebookSourceList", "GeneratedCriterion", "GeneratedProfile", "HubspotConnectionList", "HubspotConnections", "HubspotPendingList", "Inbound", "InboundList", "InboundResult", "Job", "Lead", "LeadEvaluation", "LeadList", "Outcome", "PipedriveConnectionList", "PipedriveConnections", "PipedrivePendingList", "Place", "PlaceSuggestion", "PlaceSuggestionList", "Plan", "Profile", "ProfileDocument", "ProfileList", "ProfileTemplate", "ProfileTemplateList", "ProfileValidation", "ProfileVersion", "ProfileVersionList", "Report", "ReportMoney", "Source", "SourceList", "TemplateVariable", "Tier", "Usage", "Workspace", "WorkspaceComparison", "WorkspaceList"]
+
+
+class Alert(LeadveyorObject):
+    """Alert
+    """
+
+    object: Literal["alert"]
+    id: str
+    kind: Literal["destination_disabled", "crm_disconnected", "source_error", "source_silent", "quota_held"]
+    """destination_disabled: a webhook was turned off after repeated failures; crm_disconnected: a CRM connection lost its access; source_error: a source can't receive leads; source_silent: a busy source stopped receiving messages; quota_held: messages wait at the plan's limit"""
+    objectType: Literal["destination", "crm_connection", "source", "account"]
+    """What `objectId` points to"""
+    objectId: str
+    """ID of the destination, CRM connection, source or account with the problem"""
+    workspaceId: Optional[str]
+    """null for account-wide problems (quota_held)"""
+    livemode: bool
+    status: Literal["open", "resolved"]
+    message: str
+    """What is wrong and what to do, in plain words"""
+    fixUrl: str
+    """Console path where it is fixed, e.g. /webhooks/dst_…"""
+    openedAt: str
+    lastSeenAt: str
+    resolvedAt: Optional[str]
+
+
+class AlertList(LeadveyorObject):
+    """AlertList
+    """
+
+    object: Literal["list"]
+    data: List[Alert]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["Alert"]}
 
 
 class ApiKey(LeadveyorObject):

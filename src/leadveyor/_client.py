@@ -26,6 +26,7 @@ from .resources.destinations import AsyncDestinations, Destinations
 from .resources.events import AsyncEvents, Events
 from .resources.billing import AsyncBilling, Billing
 from .resources.usage import AsyncUsage, Usage
+from .resources.alerts import AsyncAlerts, Alerts
 
 __all__ = ["Leadveyor", "AsyncLeadveyor"]
 
@@ -62,6 +63,7 @@ class Leadveyor(SyncAPIClient):
     events: Events
     billing: Billing
     usage: Usage
+    alerts: Alerts
     #: Verifies webhook signatures (no API key needed): ``Leadveyor.webhooks.construct_event(...)``.
     webhooks = Webhook
 
@@ -98,6 +100,7 @@ class Leadveyor(SyncAPIClient):
         self.events = Events(self)
         self.billing = Billing(self)
         self.usage = Usage(self)
+        self.alerts = Alerts(self)
 
     def with_workspace(self, workspace: str) -> "Leadveyor":
         """A client with the same settings that sends every request to ``workspace`` (account-wide keys, agencies)."""
@@ -166,6 +169,7 @@ class AsyncLeadveyor(AsyncAPIClient):
     events: AsyncEvents
     billing: AsyncBilling
     usage: AsyncUsage
+    alerts: AsyncAlerts
     #: Verifies webhook signatures (no API key needed): ``Leadveyor.webhooks.construct_event(...)``.
     webhooks = Webhook
 
@@ -202,6 +206,7 @@ class AsyncLeadveyor(AsyncAPIClient):
         self.events = AsyncEvents(self)
         self.billing = AsyncBilling(self)
         self.usage = AsyncUsage(self)
+        self.alerts = AsyncAlerts(self)
 
     def with_workspace(self, workspace: str) -> "AsyncLeadveyor":
         """A client with the same settings that sends every request to ``workspace`` (account-wide keys, agencies)."""

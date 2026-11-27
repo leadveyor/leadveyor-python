@@ -17,5 +17,6 @@ from .destinations import AsyncDestinations, Destinations
 from .events import AsyncEvents, Events
 from .billing import AsyncBilling, Billing
 from .usage import AsyncUsage, Usage
+from .alerts import AsyncAlerts, Alerts
 
-__all__ = ["ApiKeys", "AsyncApiKeys", "Workspaces", "AsyncWorkspaces", "Templates", "AsyncTemplates", "Profiles", "AsyncProfiles", "Sources", "AsyncSources", "Facebook", "AsyncFacebook", "Crm", "AsyncCrm", "Hubspot", "AsyncHubspot", "Pipedrive", "AsyncPipedrive", "Places", "AsyncPlaces", "Inbounds", "AsyncInbounds", "Leads", "AsyncLeads", "Contacts", "AsyncContacts", "Reports", "AsyncReports", "Destinations", "AsyncDestinations", "Events", "AsyncEvents", "Billing", "AsyncBilling", "Usage", "AsyncUsage"]
+__all__ = ["ApiKeys", "AsyncApiKeys", "Workspaces", "AsyncWorkspaces", "Templates", "AsyncTemplates", "Profiles", "AsyncProfiles", "Sources", "AsyncSources", "Facebook", "AsyncFacebook", "Crm", "AsyncCrm", "Hubspot", "AsyncHubspot", "Pipedrive", "AsyncPipedrive", "Places", "AsyncPlaces", "Inbounds", "AsyncInbounds", "Leads", "AsyncLeads", "Contacts", "AsyncContacts", "Reports", "AsyncReports", "Destinations", "AsyncDestinations", "Events", "AsyncEvents", "Billing", "AsyncBilling", "Usage", "AsyncUsage", "Alerts", "AsyncAlerts"]
