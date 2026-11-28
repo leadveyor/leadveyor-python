@@ -37,7 +37,7 @@ class Sources(SyncResource):
     def create(
         self,
         *,
-        type: Literal["api", "email", "form", "telegram", "google_ads", "facebook_lead_ads", "gohighlevel", "hubspot", "pipedrive"],
+        type: Literal["api", "email", "form", "telegram", "google_ads", "facebook_lead_ads", "gohighlevel", "hubspot", "pipedrive", "zoho", "salesforce"],
         name: Union[str, NotGiven] = NOT_GIVEN,
         profileId: Union[Optional[str], NotGiven] = NOT_GIVEN,
         redirectUrl: Union[Optional[str], NotGiven] = NOT_GIVEN,
@@ -129,7 +129,7 @@ class AsyncSources(AsyncResource):
     async def create(
         self,
         *,
-        type: Literal["api", "email", "form", "telegram", "google_ads", "facebook_lead_ads", "gohighlevel", "hubspot", "pipedrive"],
+        type: Literal["api", "email", "form", "telegram", "google_ads", "facebook_lead_ads", "gohighlevel", "hubspot", "pipedrive", "zoho", "salesforce"],
         name: Union[str, NotGiven] = NOT_GIVEN,
         profileId: Union[Optional[str], NotGiven] = NOT_GIVEN,
         redirectUrl: Union[Optional[str], NotGiven] = NOT_GIVEN,

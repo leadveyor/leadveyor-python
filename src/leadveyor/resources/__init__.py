@@ -8,6 +8,8 @@ from .facebook import AsyncFacebook, Facebook
 from .crm import AsyncCrm, Crm
 from .hubspot import AsyncHubspot, Hubspot
 from .pipedrive import AsyncPipedrive, Pipedrive
+from .zoho import AsyncZoho, Zoho
+from .salesforce import AsyncSalesforce, Salesforce
 from .places import AsyncPlaces, Places
 from .inbounds import AsyncInbounds, Inbounds
 from .leads import AsyncLeads, Leads
@@ -19,4 +21,4 @@ from .billing import AsyncBilling, Billing
 from .usage import AsyncUsage, Usage
 from .alerts import AsyncAlerts, Alerts
 
-__all__ = ["ApiKeys", "AsyncApiKeys", "Workspaces", "AsyncWorkspaces", "Templates", "AsyncTemplates", "Profiles", "AsyncProfiles", "Sources", "AsyncSources", "Facebook", "AsyncFacebook", "Crm", "AsyncCrm", "Hubspot", "AsyncHubspot", "Pipedrive", "AsyncPipedrive", "Places", "AsyncPlaces", "Inbounds", "AsyncInbounds", "Leads", "AsyncLeads", "Contacts", "AsyncContacts", "Reports", "AsyncReports", "Destinations", "AsyncDestinations", "Events", "AsyncEvents", "Billing", "AsyncBilling", "Usage", "AsyncUsage", "Alerts", "AsyncAlerts"]
+__all__ = ["ApiKeys", "AsyncApiKeys", "Workspaces", "AsyncWorkspaces", "Templates", "AsyncTemplates", "Profiles", "AsyncProfiles", "Sources", "AsyncSources", "Facebook", "AsyncFacebook", "Crm", "AsyncCrm", "Hubspot", "AsyncHubspot", "Pipedrive", "AsyncPipedrive", "Zoho", "AsyncZoho", "Salesforce", "AsyncSalesforce", "Places", "AsyncPlaces", "Inbounds", "AsyncInbounds", "Leads", "AsyncLeads", "Contacts", "AsyncContacts", "Reports", "AsyncReports", "Destinations", "AsyncDestinations", "Events", "AsyncEvents", "Billing", "AsyncBilling", "Usage", "AsyncUsage", "Alerts", "AsyncAlerts"]

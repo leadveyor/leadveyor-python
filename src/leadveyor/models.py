@@ -7,7 +7,7 @@ from typing import Any, ClassVar, List, Literal, Mapping, Optional
 
 from ._object import LeadveyorObject
 
-__all__ = ["Alert", "AlertList", "ApiKey", "ApiKeyList", "Billing", "BillingRedirect", "Contact", "ContactLeadList", "ContactList", "CreatedApiKey", "CrmConnection", "CrmConnectionList", "CrmConnections", "CrmInstall", "CrmIntegration", "CrmPendingInstall", "CrmPendingList", "Delivery", "DeliveryList", "Destination", "DestinationList", "DestinationWithSecret", "Evaluation", "EvaluationList", "EvaluationRecord", "EvaluationResult", "Event", "EventList", "ExtractField", "FacebookIntegration", "FacebookPages", "FacebookRedirect", "FacebookSourceList", "GeneratedCriterion", "GeneratedProfile", "HubspotConnectionList", "HubspotConnections", "HubspotPendingList", "Inbound", "InboundList", "InboundResult", "Job", "Lead", "LeadEvaluation", "LeadList", "Outcome", "PipedriveConnectionList", "PipedriveConnections", "PipedrivePendingList", "Place", "PlaceSuggestion", "PlaceSuggestionList", "Plan", "Profile", "ProfileDocument", "ProfileList", "ProfileTemplate", "ProfileTemplateList", "ProfileValidation", "ProfileVersion", "ProfileVersionList", "Report", "ReportMoney", "Source", "SourceList", "TemplateVariable", "Tier", "Usage", "Workspace", "WorkspaceComparison", "WorkspaceList"]
+__all__ = ["Alert", "AlertList", "ApiKey", "ApiKeyList", "Billing", "BillingRedirect", "Contact", "ContactLeadList", "ContactList", "CreatedApiKey", "CrmConnection", "CrmConnectionList", "CrmConnections", "CrmInstall", "CrmIntegration", "CrmPendingInstall", "CrmPendingList", "Delivery", "DeliveryList", "Destination", "DestinationList", "DestinationWithSecret", "Evaluation", "EvaluationList", "EvaluationRecord", "EvaluationResult", "Event", "EventList", "ExtractField", "FacebookIntegration", "FacebookPages", "FacebookRedirect", "FacebookSourceList", "GeneratedCriterion", "GeneratedProfile", "HubspotConnectionList", "HubspotConnections", "HubspotPendingList", "Inbound", "InboundList", "InboundResult", "Job", "Lead", "LeadEvaluation", "LeadList", "Outcome", "PipedriveConnectionList", "PipedriveConnections", "PipedrivePendingList", "Place", "PlaceSuggestion", "PlaceSuggestionList", "Plan", "Profile", "ProfileDocument", "ProfileList", "ProfileTemplate", "ProfileTemplateList", "ProfileValidation", "ProfileVersion", "ProfileVersionList", "Report", "ReportMoney", "SalesforceConnectionList", "SalesforceConnections", "SalesforcePendingList", "Source", "SourceList", "TemplateVariable", "Tier", "Usage", "Workspace", "WorkspaceComparison", "WorkspaceList", "ZohoConnectionList", "ZohoConnections", "ZohoPendingList"]
 
 
 class Alert(LeadveyorObject):
@@ -181,7 +181,7 @@ class CrmConnection(LeadveyorObject):
 
     object: Literal["crm_connection"]
     id: str
-    provider: Literal["gohighlevel", "hubspot", "pipedrive"]
+    provider: Literal["gohighlevel", "hubspot", "pipedrive", "zoho", "salesforce"]
     workspaceId: str
     workspaceName: Optional[str]
     hasProfile: bool
@@ -236,7 +236,7 @@ class CrmIntegration(LeadveyorObject):
     """
 
     object: Literal["crm_integration"]
-    provider: Literal["gohighlevel", "hubspot", "pipedrive"]
+    provider: Literal["gohighlevel", "hubspot", "pipedrive", "zoho", "salesforce"]
     enabled: bool
     """false until the marketplace app is set up on this server"""
     installUrl: Optional[str]
@@ -969,6 +969,42 @@ class ReportMoney(LeadveyorObject):
     currency: str
 
 
+class SalesforceConnectionList(LeadveyorObject):
+    """SalesforceConnectionList
+    """
+
+    object: Literal["list"]
+    data: List[CrmConnection]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["CrmConnection"]}
+
+
+class SalesforceConnections(LeadveyorObject):
+    """SalesforceConnections
+    """
+
+    object: Literal["list"]
+    data: List[CrmConnection]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["CrmConnection"]}
+
+
+class SalesforcePendingList(LeadveyorObject):
+    """SalesforcePendingList
+    """
+
+    object: Literal["list"]
+    data: List[CrmPendingInstall]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["CrmPendingInstall"]}
+
+
 class Source(LeadveyorObject):
     """Source
     """
@@ -976,7 +1012,7 @@ class Source(LeadveyorObject):
     object: Literal["source"]
     id: str
     workspaceId: str
-    type: Literal["api", "email", "form", "telegram", "google_ads", "facebook_lead_ads", "gohighlevel", "hubspot", "pipedrive"]
+    type: Literal["api", "email", "form", "telegram", "google_ads", "facebook_lead_ads", "gohighlevel", "hubspot", "pipedrive", "zoho", "salesforce"]
     name: str
     status: Literal["active", "paused", "error", "pending_setup"]
     profileId: Optional[str]
@@ -1087,3 +1123,39 @@ class WorkspaceList(LeadveyorObject):
     next_cursor: Optional[str]
 
     _types: ClassVar[Mapping[str, Any]] = {"data": ["Workspace"]}
+
+
+class ZohoConnectionList(LeadveyorObject):
+    """ZohoConnectionList
+    """
+
+    object: Literal["list"]
+    data: List[CrmConnection]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["CrmConnection"]}
+
+
+class ZohoConnections(LeadveyorObject):
+    """ZohoConnections
+    """
+
+    object: Literal["list"]
+    data: List[CrmConnection]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["CrmConnection"]}
+
+
+class ZohoPendingList(LeadveyorObject):
+    """ZohoPendingList
+    """
+
+    object: Literal["list"]
+    data: List[CrmPendingInstall]
+    has_more: bool
+    next_cursor: Optional[str]
+
+    _types: ClassVar[Mapping[str, Any]] = {"data": ["CrmPendingInstall"]}

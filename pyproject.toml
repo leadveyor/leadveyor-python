@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "leadveyor"
-version = "0.2.0"
+version = "0.3.0"
 description = "Official Python client for the Leadveyor API: lead scoring, sources, webhooks."
 readme = "README.md"
 license = "MIT"

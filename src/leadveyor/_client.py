@@ -17,6 +17,8 @@ from .resources.facebook import AsyncFacebook, Facebook
 from .resources.crm import AsyncCrm, Crm
 from .resources.hubspot import AsyncHubspot, Hubspot
 from .resources.pipedrive import AsyncPipedrive, Pipedrive
+from .resources.zoho import AsyncZoho, Zoho
+from .resources.salesforce import AsyncSalesforce, Salesforce
 from .resources.places import AsyncPlaces, Places
 from .resources.inbounds import AsyncInbounds, Inbounds
 from .resources.leads import AsyncLeads, Leads
@@ -54,6 +56,8 @@ class Leadveyor(SyncAPIClient):
     crm: Crm
     hubspot: Hubspot
     pipedrive: Pipedrive
+    zoho: Zoho
+    salesforce: Salesforce
     places: Places
     inbounds: Inbounds
     leads: Leads
@@ -91,6 +95,8 @@ class Leadveyor(SyncAPIClient):
         self.crm = Crm(self)
         self.hubspot = Hubspot(self)
         self.pipedrive = Pipedrive(self)
+        self.zoho = Zoho(self)
+        self.salesforce = Salesforce(self)
         self.places = Places(self)
         self.inbounds = Inbounds(self)
         self.leads = Leads(self)
@@ -160,6 +166,8 @@ class AsyncLeadveyor(AsyncAPIClient):
     crm: AsyncCrm
     hubspot: AsyncHubspot
     pipedrive: AsyncPipedrive
+    zoho: AsyncZoho
+    salesforce: AsyncSalesforce
     places: AsyncPlaces
     inbounds: AsyncInbounds
     leads: AsyncLeads
@@ -197,6 +205,8 @@ class AsyncLeadveyor(AsyncAPIClient):
         self.crm = AsyncCrm(self)
         self.hubspot = AsyncHubspot(self)
         self.pipedrive = AsyncPipedrive(self)
+        self.zoho = AsyncZoho(self)
+        self.salesforce = AsyncSalesforce(self)
         self.places = AsyncPlaces(self)
         self.inbounds = AsyncInbounds(self)
         self.leads = AsyncLeads(self)
